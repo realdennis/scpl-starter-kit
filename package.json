@@ -1,0 +1,23 @@
+{
+  "name": "scpl-js-starter-kit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "source": "src/index.js",
+  "target": "dist",
+  "scripts": {
+    "server": "http-server ./dist",
+    "watch": "nodemon --watch",
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run watch\"",
+    "build": "scpl ./src/index.scpl -o ./dist/index.shortcut",
+    "prepublishOnly": "rimraf dist/ && mkdirp dist/ && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "http-server": "^0.12.1",
+    "mkdirp": "^1.0.3",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.0",
+    "scpl-cli": "^1.1.5"
+  }
+}
